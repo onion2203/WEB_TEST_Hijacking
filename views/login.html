@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="../static/styles/login.scss">
+<div class="login-form">
+    <form action="" method="post">
+      <h1>Login</h1>
+      <div class="content">
+        <div class="input-field">
+          <input type="text" placeholder="Username" name="username" autocomplete="username">
+        </div>
+        <div class="input-field">
+          <input type="password" placeholder="Password" name="password" autocomplete="new-password">
+        </div>
+        <a href="#" class="link">Forgot Your Password?</a>
+      </div>
+      <div class="action">
+        <button>Register</button>
+        <button>Sign in</button>
+      </div>
+    </form>
+    <div class="footer">
+      <p>Don't have an account? <a href="/signup">Sign up</a></p>
+  </div>
+  <script>
+    let form = document.querySelecter('form');
+
+    form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    return false;
+    });
+  </script>

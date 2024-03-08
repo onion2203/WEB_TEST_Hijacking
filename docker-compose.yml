@@ -1,0 +1,36 @@
+version: '1.0'
+
+# Compose Python Flask server
+services:
+  web_wan:
+    container_name: web_wan
+    image: web_wan
+    build: .
+    ports:
+     - "5000:5000"
+    networks:
+    #  - public_network
+     - local_network
+
+# Linux server, with FTP version 2.3.4 and sudo version 1.8.27
+  ftp_server:
+    container_name: ftp_server
+    image: ftp_server
+    build: .
+    ports:
+     - "21:21"
+    networks:
+    #  - public_network
+     - local_network
+
+networks:
+  public_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 120.10.63.0/24
+  local_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.65.0/24
