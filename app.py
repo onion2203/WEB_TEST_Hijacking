@@ -23,6 +23,11 @@ def setup_session():
     if 'notes' not in session:
         session['notes'] = []
 
+@app.after_request
+def add_header(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 app.register_blueprint(home_router)
 app.register_blueprint(note_router)
 
